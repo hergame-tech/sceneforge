@@ -5,7 +5,7 @@ import { supabaseServer } from "@/lib/supabase-server";
 const PLAN_LIMITS: Record<string, number> = { free: 3, creator: 30, pro: 200 };
 
 export default async function DashboardPage() {
-  const supabase = supabaseServer();
+  const supabase = await supabaseServer();
   const {
     data: { user },
   } = await supabase.auth.getUser();

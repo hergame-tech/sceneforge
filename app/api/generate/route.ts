@@ -9,7 +9,7 @@ const PLAN_LIMITS: Record<string, number> = {
 };
 
 export async function POST(req: NextRequest) {
-  const supabase = supabaseServer();
+  const supabase = await supabaseServer();
   const {
     data: { user },
   } = await supabase.auth.getUser();
