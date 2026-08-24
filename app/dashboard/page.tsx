@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { supabaseServer } from "@/lib/supabase";
+import { supabaseServer } from "@/lib/supabase-server";
 
 const PLAN_LIMITS: Record<string, number> = { free: 3, creator: 30, pro: 200 };
 

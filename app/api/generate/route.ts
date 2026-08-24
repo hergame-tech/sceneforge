@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseServer } from "@/lib/supabase";
+import { supabaseServer } from "@/lib/supabase-server";
 import { buildSystemPrompt, buildUserPrompt } from "@/lib/prompts";
 
 const PLAN_LIMITS: Record<string, number> = {
