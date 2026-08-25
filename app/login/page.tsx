@@ -11,7 +11,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  async function handleLogin(e: React.FormEvent) {
+async function handleLogin(e: React.FormEvent) {
   e.preventDefault();
   setError("");
   setLoading(true);
@@ -29,7 +29,7 @@ export default function LoginPage() {
   window.location.href = "/dashboard";
 }
 
-  }
+
 
   return (
     <main className="min-h-screen flex items-center justify-center px-6">
