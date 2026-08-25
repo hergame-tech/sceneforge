@@ -12,17 +12,23 @@ export default function LoginPage() {
   const router = useRouter();
 
   async function handleLogin(e: React.FormEvent) {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    const supabase = supabaseBrowser();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setLoading(false);
-    if (error) {
-      setError(error.message);
-      return;
-    }router.refresh(); 
-    router.push("/dashboard");
+  e.preventDefault();
+  setError("");
+  setLoading(true);
+  const res = await fetch("/api/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  });
+  const data = await res.json();
+  setLoading(false);
+  if (!res.ok) {
+    setError(data.error || "Login failed");
+    return;
+  }
+  window.location.href = "/dashboard";
+}
+
   }
 
   return (
